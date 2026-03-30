@@ -24,80 +24,64 @@
         body { display: flex; height: 100vh; background-color: var(--bg-main); color: var(--text-main); overflow: hidden; }
 
         /* SIDEBAR */
-        .sidebar { width: 260px; background-color: var(--bg-sidebar); padding: 40px 20px; display: flex; flex-direction: column; gap: 10px; border-right: 1px solid var(--border); position: relative; }
+        .sidebar { width: 260px; background-color: var(--bg-sidebar); padding: 40px 20px; display: flex; flex-direction: column; gap: 10px; border-right: 1px solid var(--border); position: relative; overflow-y: auto; }
         .sidebar-title { font-size: 18px; margin-bottom: 30px; color: var(--accent); outline: none; border-bottom: 1px solid transparent; }
         .nav-item { padding: 12px 20px; border-radius: 8px; color: var(--text-muted); cursor: pointer; transition: 0.3s; font-size: 14px; }
         .nav-item.active { background: rgba(59, 130, 246, 0.1); border-color: var(--accent); color: var(--accent); font-weight: 600; border: 1px solid var(--accent); }
+
+        /* CLOUD SECTION */
+        .cloud-box { margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; border: 1px solid var(--border); }
+        .cloud-input { width: 100%; padding: 8px; margin-bottom: 8px; background: #000; border: 1px solid var(--border); color: #fff; font-size: 11px; border-radius: 4px; }
 
         /* CONTENT AREA */
         .main-content { flex: 1; padding: 40px; overflow-y: auto; display: none; }
         .main-content.active { display: block; }
 
-        /* FEEDBACK SALVAMENTO */
-        #save-indicator { position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 8px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; opacity: 0; transition: 0.5s; z-index: 1000; pointer-events: none; }
+        #save-indicator { position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 8px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; opacity: 0; transition: 0.5s; z-index: 1000; }
 
-        /* BUSCA */
+        /* RESTANTE DO SEU CSS ORIGINAL */
         .search-container { margin-bottom: 20px; }
-        .search-input { width: 100%; padding: 12px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; color: white; outline: none; transition: 0.3s; }
-        .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2); }
-
-        /* DASHBOARD */
+        .search-input { width: 100%; padding: 12px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; color: white; outline: none; }
         .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 40px; }
         .stat-card { background: var(--card-bg); padding: 25px; border-radius: 12px; border: 1px solid var(--border); }
         .stat-card h3 { font-size: 11px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
         .stat-card .value { font-size: 32px; font-weight: 700; }
-
-        /* EDITAL ORGANIZADO */
         .section-header { margin: 40px 0 20px; padding-bottom: 10px; border-bottom: 2px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
         .section-header.basica { color: var(--accent); border-color: var(--accent); }
         .section-header.especifica { color: var(--purple); border-color: var(--purple); }
-
         .materia-container { background: var(--card-bg); border-radius: 12px; margin-bottom: 20px; border: 1px solid var(--border); overflow: hidden; }
-        .materia-header { background: rgba(255,255,255,0.03); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: 0.2s; }
-        .materia-header:hover { background: rgba(255,255,255,0.08); }
+        .materia-header { background: rgba(255,255,255,0.03); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
         .materia-name { font-weight: 700; color: #fff; outline: none; font-size: 16px; flex-grow: 1; }
-
         .materia-content { display: block; }
         .materia-content.collapsed { display: none; }
-
-        .materia-notes { background: rgba(0,0,0,0.15); padding: 12px 20px; font-size: 12px; color: var(--text-muted); border-bottom: 1px solid var(--border); outline: none; min-height: 30px; line-height: 1.5; }
-
+        .materia-notes { background: rgba(0,0,0,0.15); padding: 12px 20px; font-size: 12px; color: var(--text-muted); border-bottom: 1px solid var(--border); outline: none; min-height: 30px; }
         table { width: 100%; border-collapse: collapse; }
-        th { text-align: left; padding: 12px 20px; font-size: 11px; color: var(--text-muted); border-bottom: 1px solid var(--border); text-transform: uppercase; }
+        th { text-align: left; padding: 12px 20px; font-size: 11px; color: var(--text-muted); border-bottom: 1px solid var(--border); }
         td { padding: 12px 20px; border-bottom: 1px solid var(--border); font-size: 13px; }
-
-        /* REVISÕES E DATAS */
         .rev-group { display: inline-flex; flex-direction: column; align-items: center; margin-right: 8px; }
-        .rev-date { font-size: 9px; color: var(--text-muted); margin-top: 4px; font-weight: 400; }
+        .rev-date { font-size: 9px; color: var(--text-muted); margin-top: 4px; }
         .rev-btn { width: 35px; height: 24px; border-radius: 4px; border: 1px solid var(--border); background: transparent; cursor: pointer; color: var(--text-main); font-size: 9px; font-weight: bold; }
         .rev-btn.done { background: var(--success) !important; color: white; border: none; }
-        .rev-btn.today { background: var(--warning) !important; color: black; border: none; box-shadow: 0 0 10px rgba(234, 179, 8, 0.4); }
+        .rev-btn.today { background: var(--warning) !important; color: black; border: none; }
         .rev-btn.late { background: var(--danger) !important; color: white; border: none; }
-
         .row-notes { display: none; background: rgba(0,0,0,0.2); font-size: 12px; color: #cbd5e1; }
         .row-notes.active { display: table-row; }
-        .row-notes td { padding: 15px 40px; border-bottom: 1px solid var(--border); }
-
+        .row-notes td { padding: 15px 40px; }
         .editable { outline: none; padding: 4px; border-radius: 4px; }
         .add-btn { background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 12px; }
         .add-btn.purp { background: var(--purple); }
         .del-btn { color: var(--text-muted); cursor: pointer; border: none; background: none; font-size: 14px; margin-left: 8px; }
         .note-btn { background: none; border: none; cursor: pointer; font-size: 14px; margin-right: 10px; opacity: 0.6; }
-
-        /* PLANEJAMENTO */
         .plan-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-top: 20px; }
         .day-card { background: var(--card-bg); padding: 15px; border-radius: 8px; border: 1px solid var(--border); min-height: 150px; }
-        .day-card h4 { font-size: 12px; color: var(--accent); margin-bottom: 10px; text-align: center; border-bottom: 1px solid var(--border); padding-bottom: 5px; }
-        .plan-edit { font-size: 12px; outline: none; min-height: 100px; color: var(--text-main); }
-
-        .backup-section { margin-top: 20px; display: flex; gap: 10px; }
-        .btn-sec { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 11px; }
-        .btn-sec:hover { background: var(--border); color: white; }
+        .day-card h4 { font-size: 12px; color: var(--accent); margin-bottom: 10px; text-align: center; border-bottom: 1px solid var(--border); }
+        .plan-edit { font-size: 12px; outline: none; min-height: 100px; }
+        .btn-sec { background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 11px; width: 100%; }
     </style>
 </head>
 <body>
 
-    <div id="save-indicator">✓ Dados Salvos</div>
+    <div id="save-indicator">✓ Sincronizado</div>
 
     <div class="sidebar">
         <div class="sidebar-title editable" contenteditable="true" id="side-title" onblur="saveSideTitle()">SEDEST/DF PRO</div>
@@ -106,12 +90,18 @@
         <div class="nav-item" onclick="switchTab('tab-ciclo', this)">Ciclo / Cronograma</div>
         <div class="nav-item" onclick="switchTab('tab-notes', this)">Anotações Gerais</div>
         
-        <div style="margin-top: auto;">
-            <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 10px;">Gerenciamento de Dados:</div>
-            <div style="display: flex; gap: 5px;">
-                <button class="btn-sec" onclick="exportData()">Exportar</button>
-                <button class="btn-sec" onclick="importData()">Importar</button>
-            </div>
+        <div class="cloud-box">
+            <div style="font-size: 10px; color: var(--accent); margin-bottom: 8px; font-weight: bold;">☁️ SINCRONIZAÇÃO NUVEM</div>
+            <input type="password" id="gh-token" class="cloud-input" placeholder="Token do GitHub">
+            <input type="text" id="gist-id" class="cloud-input" placeholder="ID do Gist (Gerado ao salvar)">
+            <button class="add-btn" style="width: 100%; margin-bottom: 5px;" onclick="syncToCloud()">SALVAR NA NUVEM</button>
+            <button class="btn-sec" onclick="loadFromCloud()">BAIXAR DA NUVEM</button>
+        </div>
+
+        <div style="margin-top: 20px; border-top: 1px solid var(--border); padding-top: 10px;">
+            <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 5px;">Backup Manual:</div>
+            <button class="btn-sec" style="margin-bottom: 5px;" onclick="exportData()">Exportar JSON</button>
+            <button class="btn-sec" onclick="importData()">Importar JSON</button>
         </div>
     </div>
 
@@ -130,13 +120,11 @@
         <div class="search-container">
             <input type="text" class="search-input" id="edital-search" placeholder="🔍 Buscar matéria ou tópico..." oninput="renderEdital()">
         </div>
-
         <div class="section-header basica">
             <h2>CONHECIMENTOS BÁSICOS</h2>
             <button class="add-btn" onclick="addMateria('basica')">+ Nova Matéria Básica</button>
         </div>
         <div id="container-basica"></div>
-        
         <div class="section-header especifica">
             <h2>CONHECIMENTOS ESPECÍFICOS</h2>
             <button class="add-btn purp" onclick="addMateria('especifica')">+ Nova Matéria Específica</button>
@@ -156,228 +144,21 @@
     <div id="tab-notes" class="main-content">
         <h1>Anotações Gerais & Links</h1>
         <div class="stat-card" style="margin-top: 20px; min-height: 400px;">
-            <div class="editable" contenteditable="true" id="notas-gerais-txt" onblur="saveGeneralNotes()" style="line-height: 1.6; min-height: 350px;">
-                Escreva aqui suas referências, links importantes e observações gerais do concurso...
-            </div>
+            <div class="editable" contenteditable="true" id="notas-gerais-txt" onblur="saveGeneralNotes()" style="line-height: 1.6; min-height: 350px;">Escreva aqui...</div>
         </div>
     </div>
 
     <script>
-        // PRESERVAÇÃO DAS CHAVES ORIGINAIS
+        // --- VARIÁVEIS GLOBAIS ---
         let dbv4 = JSON.parse(localStorage.getItem('sedest_v4_db')) || { basica: [], especifica: [] };
         let cronograma = JSON.parse(localStorage.getItem('sedest_v3_cron')) || ["", "", "", "", "", "", ""];
 
-        function showSaveFeedback() {
-            const el = document.getElementById('save-indicator');
-            el.style.opacity = '1';
-            setTimeout(() => { el.style.opacity = '0'; }, 1500);
-        }
+        // --- FUNÇÕES DE NUVEM ---
+        async function syncToCloud() {
+            const token = document.getElementById('gh-token').value;
+            let gistId = document.getElementById('gist-id').value;
+            if(!token) return alert("Por favor, cole seu Token do GitHub!");
 
-        function switchTab(tabId, el) {
-            document.querySelectorAll('.main-content').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            el.classList.add('active');
-            if(tabId === 'tab-dash') updateDashboard();
-            if(tabId === 'tab-edital') renderEdital();
-            if(tabId === 'tab-ciclo') renderCronograma();
-        }
-
-        function addMateria(tipo) {
-            dbv4[tipo].push({ id: Date.now(), nome: "NOVA MATÉRIA", obs: "", topicos: [], collapsed: false });
-            save(); renderEdital();
-        }
-
-        function addTopico(materiaId, tipo) {
-            const materia = dbv4[tipo].find(m => m.id === materiaId);
-            materia.topicos.push({ id: Date.now(), titulo: "Novo Assunto...", data: "", revs: [false, false, false, false, false], notas: "" });
-            save(); renderEdital();
-        }
-
-        function toggleMateria(tipo, id) {
-            const materia = dbv4[tipo].find(m => m.id === id);
-            materia.collapsed = !materia.collapsed;
-            save(); renderEdital();
-        }
-
-        function toggleRowNote(tId) {
-            document.getElementById(`note-row-${tId}`).classList.toggle('active');
-        }
-
-        function getFutureDate(baseDate, days) {
-            if (!baseDate) return "-";
-            // Ajuste para evitar erro de fuso horário
-            const date = new Date(baseDate + "T12:00:00");
-            date.setDate(date.getDate() + days);
-            return date.toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' });
-        }
-
-        function renderEdital() {
-            const searchTerm = document.getElementById('edital-search').value.toLowerCase();
-            renderSecao('basica', 'container-basica', searchTerm);
-            renderSecao('especifica', 'container-especifica', searchTerm);
-        }
-
-        function renderSecao(tipo, containerId, searchTerm = '') {
-            const container = document.getElementById(containerId);
-            container.innerHTML = '';
-            
-            dbv4[tipo].forEach(materia => {
-                const materiaMatches = materia.nome.toLowerCase().includes(searchTerm);
-                const matchingTopicos = materia.topicos.filter(t => t.titulo.toLowerCase().includes(searchTerm));
-                
-                // Se não combina com busca, pula
-                if (searchTerm && !materiaMatches && matchingTopicos.length === 0) return;
-
-                const div = document.createElement('div');
-                div.className = 'materia-container';
-                let rows = '';
-                
-                // Se estiver buscando, mostra todos os tópicos da matéria que combina
-                const topicosParaRenderizar = searchTerm ? (materiaMatches ? materia.topicos : matchingTopicos) : materia.topicos;
-
-                topicosParaRenderizar.forEach(t => {
-                    let revsHtml = '';
-                    [1, 7, 14, 30, 60].forEach((d, i) => {
-                        const status = getStatus(t.data, d, t.revs[i]);
-                        const dateStr = getFutureDate(t.data, d);
-                        revsHtml += `
-                            <div class="rev-group">
-                                <button class="rev-btn ${status}" onclick="event.stopPropagation(); toggleRevV4('${tipo}', ${materia.id}, ${t.id}, ${i})">${d}d</button>
-                                <span class="rev-date">${dateStr}</span>
-                            </div>`;
-                    });
-
-                    rows += `
-                        <tr>
-                            <td>
-                                <button class="note-btn" onclick="toggleRowNote(${t.id})">📝</button>
-                                <div class="editable" style="display:inline-block" contenteditable="true" onblur="updateTopicoV4('${tipo}', ${materia.id}, ${t.id}, this.innerText)">${t.titulo}</div>
-                            </td>
-                            <td><input type="date" value="${t.data}" onchange="updateDataV4('${tipo}', ${materia.id}, ${t.id}, this.value)" style="background:transparent; color:white; border:1px solid var(--border); padding:2px; border-radius:4px; font-size:11px;"></td>
-                            <td align="center">${revsHtml}</td>
-                            <td><button class="del-btn" onclick="event.stopPropagation(); delTopicoV4('${tipo}', ${materia.id}, ${t.id})">🗑️</button></td>
-                        </tr>
-                        <tr class="row-notes" id="note-row-${t.id}">
-                            <td colspan="4">
-                                <div contenteditable="true" onblur="updateTopicoNote('${tipo}', ${materia.id}, ${t.id}, this.innerText)" style="outline:none">
-                                    ${t.notas || 'Clique para adicionar anotações deste tópico...'}
-                                </div>
-                            </td>
-                        </tr>`;
-                });
-
-                div.innerHTML = `
-                    <div class="materia-header" onclick="toggleMateria('${tipo}', ${materia.id})">
-                        <div class="materia-name" contenteditable="true" onclick="event.stopPropagation()" onblur="updateMateriaNome('${tipo}', ${materia.id}, this.innerText)">${materia.nome}</div>
-                        <div onclick="event.stopPropagation()">
-                            <button class="add-btn" style="padding:4px 10px; font-size:10px" onclick="addTopico(${materia.id}, '${tipo}')">+ Tópico</button>
-                            <button class="del-btn" onclick="delMateriaV4('${tipo}', ${materia.id})">✕</button>
-                        </div>
-                    </div>
-                    <div class="materia-content ${(materia.collapsed && !searchTerm) ? 'collapsed' : ''}">
-                        <div class="materia-notes" contenteditable="true" onblur="updateMateriaNote('${tipo}', ${materia.id}, this.innerText)">
-                            ${materia.obs || 'Clique para adicionar anotações gerais da matéria...'}
-                        </div>
-                        <table>
-                            <thead><tr><th>Assunto</th><th width="130">Estudo</th><th width="260">Revisões</th><th width="40"></th></tr></thead>
-                            <tbody>${rows || '<tr><td colspan="4" style="text-align:center; color:gray; padding:20px">Nenhum tópico encontrado.</td></tr>'}</tbody>
-                        </table>
-                    </div>`;
-                container.appendChild(div);
-            });
-        }
-
-        // UPDATES & PERSISTENCE
-        function updateMateriaNome(tipo, mId, val) { dbv4[tipo].find(m => m.id === mId).nome = val; save(); }
-        function updateMateriaNote(tipo, mId, val) { dbv4[tipo].find(m => m.id === mId).obs = val; save(); }
-        function updateTopicoV4(tipo, mId, tId, val) { dbv4[tipo].find(m => m.id === mId).topicos.find(t => t.id === tId).titulo = val; save(); }
-        function updateTopicoNote(tipo, mId, tId, val) { dbv4[tipo].find(m => m.id === mId).topicos.find(t => t.id === tId).notas = val; save(); }
-        function updateDataV4(tipo, mId, tId, val) { dbv4[tipo].find(m => m.id === mId).topicos.find(t => t.id === tId).data = val; save(); renderEdital(); }
-        
-        function toggleRevV4(tipo, mId, tId, idx) { 
-            const t = dbv4[tipo].find(m => m.id === mId).topicos.find(t => t.id === tId);
-            t.revs[idx] = !t.revs[idx]; save(); renderEdital(); 
-        }
-
-        function delTopicoV4(tipo, mId, tId) {
-            if(confirm('Excluir tópico?')) {
-                const m = dbv4[tipo].find(m => m.id === mId);
-                m.topicos = m.topicos.filter(t => t.id !== tId);
-                save(); renderEdital();
-            }
-        }
-
-        function delMateriaV4(tipo, mId) {
-            if(confirm('Excluir toda a matéria e seus tópicos?')) { dbv4[tipo] = dbv4[tipo].filter(m => m.id !== mId); save(); renderEdital(); }
-        }
-
-        function getStatus(baseDate, days, done) {
-            if (done) return 'done';
-            if (!baseDate) return '';
-            const target = new Date(baseDate + "T12:00:00");
-            target.setDate(target.getDate() + days);
-            const hoje = new Date(); hoje.setHours(0,0,0,0); target.setHours(0,0,0,0);
-            if (target < hoje) return 'late';
-            if (target.getTime() === hoje.getTime()) return 'today';
-            return '';
-        }
-
-        function updateDashboard() {
-            let done = 0, hojeCount = 0, atraso = 0, totalAssuntos = 0;
-            const lista = document.getElementById('lista-hoje');
-            lista.innerHTML = '';
-
-            ['basica', 'especifica'].forEach(tipo => {
-                dbv4[tipo].forEach(materia => {
-                    materia.topicos.forEach(t => {
-                        totalAssuntos++;
-                        [1, 7, 14, 30, 60].forEach((d, i) => {
-                            const s = getStatus(t.data, d, t.revs[i]);
-                            if(t.revs[i]) done++;
-                            if(s === 'today') {
-                                hojeCount++;
-                                lista.innerHTML += `
-                                <div style="padding:15px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center">
-                                    <span>🔹 <b>${materia.nome}:</b> ${t.titulo} (Rev. ${d}d)</span>
-                                    <button class="add-btn" style="padding:4px 8px" onclick="toggleRevV4('${tipo}', ${materia.id}, ${t.id}, ${i}); updateDashboard()">Marcar como Feito</button>
-                                </div>`;
-                            }
-                            if(s === 'late') atraso++;
-                        });
-                    });
-                });
-            });
-
-            const totalChecks = totalAssuntos * 5;
-            const progresso = totalChecks > 0 ? Math.round((done/totalChecks)*100) : 0;
-
-            document.getElementById('stats-summary').innerHTML = `
-                <div class="stat-card" style="border-left: 4px solid var(--accent)"><h3>Progresso Ciclo</h3><div class="value">${progresso}%</div></div>
-                <div class="stat-card" style="border-left: 4px solid var(--warning)"><h3>Revisões Hoje</h3><div class="value">${hojeCount}</div></div>
-                <div class="stat-card" style="border-left: 4px solid var(--danger)"><h3>Em Atraso</h3><div class="value" style="color:var(--danger)">${atraso}</div></div>
-                <div class="stat-card" style="border-left: 4px solid var(--success)"><h3>Assuntos Lidos</h3><div class="value">${totalAssuntos}</div></div>`;
-            
-            if(!lista.innerHTML) lista.innerHTML = '<div style="color:var(--success); padding:20px; text-align:center">🎉 Tudo em dia! Aproveite para avançar no conteúdo novo.</div>';
-        }
-
-        function renderCronograma() {
-            const dias = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"];
-            const container = document.getElementById('cronograma-container');
-            container.innerHTML = '';
-            dias.forEach((dia, i) => {
-                container.innerHTML += `<div class="day-card"><h4>${dia}</h4><div class="plan-edit" contenteditable="true" onblur="saveDay(${i}, this.innerText)">${cronograma[i]}</div></div>`;
-            });
-        }
-
-        // SALVAMENTO PRESERVANDO CHAVES ORIGINAIS
-        function saveDay(idx, val) { cronograma[idx] = val; localStorage.setItem('sedest_v3_cron', JSON.stringify(cronograma)); showSaveFeedback(); }
-        function saveCiclo() { localStorage.setItem('sedest_v3_ciclotxt', document.getElementById('ciclo-texto').innerText); showSaveFeedback(); }
-        function saveSideTitle() { localStorage.setItem('sedest_v3_title', document.getElementById('side-title').innerText); showSaveFeedback(); }
-        function saveGeneralNotes() { localStorage.setItem('sedest_v4_generalnotes', document.getElementById('notas-gerais-txt').innerText); showSaveFeedback(); }
-        function save() { localStorage.setItem('sedest_v4_db', JSON.stringify(dbv4)); showSaveFeedback(); }
-
-        function exportData() {
             const data = {
                 db: dbv4,
                 cron: cronograma,
@@ -385,44 +166,37 @@
                 ciclo: document.getElementById('ciclo-texto').innerText,
                 notes: document.getElementById('notas-gerais-txt').innerText
             };
-            const blob = new Blob([JSON.stringify(data)], {type: 'application/json'});
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = `backup_sedest_pro_${new Date().toISOString().split('T')[0]}.json`;
-            a.click();
-        }
 
-        function importData() {
-            const input = document.createElement('input');
-            input.type = 'file';
-            input.onchange = e => {
-                const reader = new FileReader();
-                reader.onload = ev => {
-                    const content = JSON.parse(ev.target.result);
-                    if(content.db) {
-                        localStorage.setItem('sedest_v4_db', JSON.stringify(content.db));
-                        localStorage.setItem('sedest_v3_cron', JSON.stringify(content.cron));
-                        if(content.title) localStorage.setItem('sedest_v3_title', content.title);
-                        if(content.ciclo) localStorage.setItem('sedest_v3_ciclotxt', content.ciclo);
-                        if(content.notes) localStorage.setItem('sedest_v4_generalnotes', content.notes);
-                        location.reload();
-                    }
-                };
-                reader.readAsText(e.target.files[0]);
+            const body = {
+                description: "Backup Estudos SEDEST",
+                public: false,
+                files: { "estudos_data.json": { content: JSON.stringify(data) } }
             };
-            input.click();
+
+            const url = gistId ? `https://api.github.com/gists/${gistId}` : 'https://api.github.com/gists';
+            const method = gistId ? 'PATCH' : 'POST';
+
+            try {
+                const response = await fetch(url, {
+                    method: method,
+                    headers: { 'Authorization': `token ${token}` },
+                    body: JSON.stringify(body)
+                });
+                const result = await response.json();
+                if(result.id) {
+                    document.getElementById('gist-id').value = result.id;
+                    localStorage.setItem('gist_id_saved', result.id);
+                    localStorage.setItem('gh_token_saved', token);
+                    showSaveFeedback();
+                    alert("Dados salvos na nuvem com sucesso!");
+                } else { alert("Erro ao salvar. Verifique o Token."); }
+            } catch (err) { alert("Erro na conexão com GitHub."); }
         }
 
-        window.onload = () => {
-            if(localStorage.getItem('sedest_v3_title')) document.getElementById('side-title').innerText = localStorage.getItem('sedest_v3_title');
-            if(localStorage.getItem('sedest_v3_ciclotxt')) document.getElementById('ciclo-texto').innerText = localStorage.getItem('sedest_v3_ciclotxt');
-            if(localStorage.getItem('sedest_v4_generalnotes')) document.getElementById('notas-gerais-txt').innerText = localStorage.getItem('sedest_v4_generalnotes');
-            
-            renderEdital();
-            updateDashboard();
-            const frases = ["Foco, força e café.", "Sua única competição é você mesmo.", "A persistência é o caminho do êxito.", "Estude enquanto eles dormem.", "O sucesso é a soma de pequenos esforços repetidos."];
-            document.getElementById('frase').innerText = `"${frases[Math.floor(Math.random()*frases.length)]}"`;
-        };
-    </script>
-</body>
-</html>
+        async function loadFromCloud() {
+            const token = document.getElementById('gh-token').value;
+            const gistId = document.getElementById('gist-id').value;
+            if(!token || !gistId) return alert("Preencha o Token e o ID do Gist para baixar!");
+
+            try {
+                const response = await fetch(`https://api.github.com/gists/${gistId
